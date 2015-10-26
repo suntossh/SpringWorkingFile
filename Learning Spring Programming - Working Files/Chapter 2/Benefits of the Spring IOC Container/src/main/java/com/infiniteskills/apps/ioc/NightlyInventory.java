@@ -1,0 +1,30 @@
+package com.infiniteskills.apps.ioc;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.infiniteskills.spring.di.RentalLocation;
+import com.infiniteskills.spring.di.RentalService;
+
+public class NightlyInventory {
+
+	private static final String TITLE = "Forest Gump";
+
+	@SuppressWarnings("unused")
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"application-context.xml");
+		
+		RentalService rentalService = context.getBean("rentalService",
+				RentalService.class);
+	
+		List<RentalLocation> locations = rentalService.find(TITLE, "16802", 10);
+		
+		//Find inventory each night.
+
+		((ClassPathXmlApplicationContext) context).close();
+	}
+}

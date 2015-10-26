@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="prototype" class="com.infiniteskills.spring.Prototype" scope="prototype"/>
+	
+	<bean id="singleton" class="com.infiniteskills.spring.Singleton" scope="singleton">
+		<lookup-method bean="prototype" name="createPrototype"/>
+	</bean>
+		
+</beans>

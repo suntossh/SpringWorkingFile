@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	
+	<bean id="beanA" class="com.infiniteskills.spring.ObjectA"/>
+	
+	<util:set id="mySet" set-class="java.util.HashSet">
+		<value>Mary</value>
+		<value>Sam</value>
+		<value>Bob</value>
+	</util:set>
+		
+	<bean id="bean" class="com.infiniteskills.spring.Bean">
+		<property name="list">
+			<list>
+				<bean class="com.infiniteskills.spring.ObjectA"/>
+				<ref bean="beanA"/>
+			</list>
+		</property>
+		<property name="set" ref="mySet"/>
+		<property name="map">
+			<map>
+				<entry key="a" value="Apple"/>			
+				<entry key="b" value="Ball"/>			
+				<entry key="c" value="Cake"/>			
+			</map>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="a">Apple</prop>
+				<prop key="b">Ball</prop>
+			</props>
+		</property>
+	</bean>		
+</beans>

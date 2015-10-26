@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="beanA" class="com.infiniteskills.spring.BeanA">
+		<constructor-arg type="com.infiniteskills.spring.BeanB" ref="beanB"/>
+	</bean>
+	
+	<bean id="beanB" class="com.infiniteskills.spring.BeanB">
+		<property name="beanC" ref="beanC"/>
+	</bean>
+	
+	<bean id="beanC" class="com.infiniteskills.spring.BeanC">
+		<property name="message" value="Java Configuration!"/>
+	</bean>
+	
+</beans>
